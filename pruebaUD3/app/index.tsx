@@ -1,4 +1,8 @@
-import { Text, View } from "react-native";
+import { Button, Text, View } from "react-native";
+
+function pulsar(){
+  alert("Se ha pulsado el boton")
+}
 
 export default function Index() {
   return (
@@ -9,7 +13,9 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Text>Hola mundo</Text>
+      <Button title="Boton" onPress={pulsar}/>
+
     </View>
   );
 }
