@@ -6,14 +6,14 @@
                 - id: number
                 - nombre: string
                 - apellidos: string
-                - esMayorDeEdad: boolean
-                + constructor(id: number, nombre: string, apellidos: string, esMayorDeEdad: boolean)
+                - edad: int
+                + constructor(id: number, nombre: string, apellidos: string, edad: boolean)
                 + getId(): number
                 + getNombre(): string
                 + setNombre(nombre: string): void
                 + getApellidos(): string
                 + setApellidos(apellidos: string): void
-                + getEsMayorDeEdad(): boolean
+                + getEdad(): boolean
 
             /Interfaces
                 IGetPersonasUseCase.ts
@@ -28,6 +28,15 @@
                 - repository: IPersonasRepository
                 + execute(): Persona[]
 
+            /DTO
+                PersonaMayorDeEdad.ts
+                - id: number
+                - nombre: string
+                - apellidos: string
+                - edad: int
+                - mayorEdad: boolean
+
+
         /Data
             /Repositories
                 PersonasRepository.ts (implementa IPersonasRepository)
@@ -37,6 +46,7 @@
                 MockPersonas.ts
                 - personas: Persona[]
 
+
         /Presentation
             /Views
                 ListadoPersonas.tsx
@@ -44,11 +54,16 @@
                 + Renderiza <ListadoPersonas />
 
             /ViewModels
-                ListadoPersonasVM.ts
-                - getPersonasUC: IGetPersonasUseCase
-                - personas: Persona[]
-                + ListadoPersonasVM(getPersonasUC: IGetPersonasUseCase)
-                + getPersonas(): Persona[] // llama a use case y devuelve lista
+                IPersonaViewModel.ts
+                PersonaViewModel.ts
+
+            /Mappers
+                IDomainToUIMapper
+                DomainToUIMapper
+
+            /Models
+                PersonaUIModel.ts
+
 
         /Core
             types.ts
