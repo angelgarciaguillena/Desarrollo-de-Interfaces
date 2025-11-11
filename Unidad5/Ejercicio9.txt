@@ -1,0 +1,48 @@
+
+/App
+    /src
+        /Domain
+            /Entities
+                Jugador.ts        (Entidad que representa un jugador de fútbol)
+                Equipo.ts         (Entidad que representa un equipo de fútbol)
+                Partido.ts        (Entidad opcional para representar los partidos)
+
+            /DTO
+                JugadorDTO.ts     (DTO que contiene los datos del jugador para la vista)
+                EquipoDTO.ts      (DTO que contiene los datos del equipo para la vista)
+                PartidoDTO.ts     (DTO para los partidos, si se implementa)
+
+            /Interfaces
+                IAgregarJugadorUseCase.ts    (Interfaz del caso de uso para agregar un jugador)
+                IAgregarEquipoUseCase.ts     (Interfaz del caso de uso para agregar un equipo)
+                IAsignarJugadorEquipoUseCase.ts  (Interfaz para asignar un jugador a un equipo)
+                IEstadisticasUseCase.ts     (Interfaz para obtener estadísticas)
+                IPartidoRepository.ts        (Interfaz para el repositorio de partidos)
+                IEquipoRepository.ts         (Interfaz para el repositorio de equipos)
+                IJugadorRepository.ts        (Interfaz para el repositorio de jugadores)
+
+            /UseCase
+                AgregarJugadorUseCase.ts     (Implementación del caso de uso para agregar un jugador)
+                AgregarEquipoUseCase.ts      (Implementación del caso de uso para agregar un equipo)
+                AsignarJugadorEquipoUseCase.ts (Implementación para asignar un jugador a un equipo)
+                EstadisticasUseCase.ts      (Implementación para obtener estadísticas)
+                PartidoUseCase.ts           (Implementación opcional para registrar partidos)
+
+        /Data
+            /Repositories
+                JugadorRepository.ts       (Repositorio que maneja los jugadores)
+                EquipoRepository.ts        (Repositorio que maneja los equipos)
+                PartidoRepository.ts       (Repositorio opcional para manejar los partidos)
+
+        /Presentation
+            /Views
+                index.tsx   (Vista principal donde se gestionan jugadores, equipos, y estadísticas)
+
+            /ViewModels
+                JugadorVM.ts  (ViewModel para la gestión de jugadores)
+                EquipoVM.ts   (ViewModel para la gestión de equipos)
+                EstadisticasVM.ts (ViewModel para mostrar estadísticas)
+                
+        /Core
+            types.ts   (Tipos comunes, como por ejemplo los tipos de posición de jugadores)
+            container.ts (Contenedor de inyección de dependencias)

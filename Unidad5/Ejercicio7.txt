@@ -1,0 +1,52 @@
+/App
+    /src
+        /Domain
+            /Entities
+                Habitacion.ts  (Entidad que representa la habitación del hotel)
+                - id: int
+                - nombre: string
+                - precio: number
+                - maxPersonas: number
+                - Habitacion(id, nombre, precio, maxPersonas)
+                + getId(): int
+                + getNombre(): string
+                + getPrecio(): number
+                + getMaxPersonas(): number
+
+            /DTO
+                HabitacionDTO.ts  (DTO que será utilizado para mostrar las habitaciones)
+                + habitacion: Habitacion
+                + HabitacionDTO(habitacion: Habitacion)
+
+            /Interfaces
+                IGetHabitacionesUseCase.ts  (Interfaz del caso de uso para obtener las habitaciones)
+                + execute(fechaEntrada: Date, fechaSalida: Date, numPersonas: number, numHabitaciones: number): HabitacionDTO[]
+
+            /Repositories
+                IHabitacionRepository.ts  (Interfaz del repositorio que obtiene las habitaciones)
+                + getListadoHabitaciones(): Habitacion[]  (Obtiene el listado estático de habitaciones)
+
+            /UseCase
+                GetHabitacionesUseCase.ts  (Implementa IGetHabitacionesUseCase)
+                + execute(fechaEntrada: Date, fechaSalida: Date, numPersonas: number, numHabitaciones: number): HabitacionDTO[]
+
+        /Data
+            /Repositories
+                HabitacionRepository.ts  (Implementación concreta de IHabitacionRepository)
+                + getListadoHabitaciones(): Habitacion[]  (Retorna las habitaciones estáticas)
+
+        /Presentation
+            /Views
+                index.tsx  (Vista que muestra el listado de habitaciones)
+           
+            /ViewModels
+                HabitacionesVM.ts  (ViewModel que se comunica con el caso de uso)
+                + getHabitacionesUC: IGetHabitacionesUseCase
+                + obtenerHabitaciones(fechaEntrada: Date, fechaSalida: Date, numPersonas: number, numHabitaciones: number): HabitacionDTO[]
+
+            /Mappers
+                HabitacionMapper.ts  (Puede tener lógica de mapeo, por ejemplo, para validar que el número de personas no exceda el máximo de la habitación)
+
+        /Core
+            types.ts  (Tipos comunes, como los tipos de datos de fechas, validación de inputs, etc.)
+            container.ts  (Contenedor de inyección de dependencias)

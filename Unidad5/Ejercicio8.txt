@@ -1,0 +1,23 @@
+/App
+    /src
+        /Domain
+            /Entities
+                Cuenta.ts        (Entidad que representa una cuenta bancaria)
+            /DTO
+                TransferenciaDTO.ts  (DTO que contiene los datos de la transferencia)
+            /Interfaces
+                ITransferirDineroUseCase.ts  (Interfaz del caso de uso para realizar una transferencia)
+                ICuentaRepository.ts  (Interfaz del repositorio para obtener las cuentas)
+            /UseCase
+                TransferirDineroUseCase.ts  (Implementación del caso de uso de la transferencia de dinero)
+        /Data
+            /Repositories
+                CuentaRepository.ts  (Implementación concreta del repositorio de cuentas bancarias)
+        /Presentation
+            /Views
+                index.tsx  (Vista que muestra el formulario para la transferencia)
+            /ViewModels
+                TransferenciaVM.ts  (ViewModel que interactúa con el caso de uso)
+        /Core
+            types.ts  (Tipos comunes, como validación de números de cuenta, importes, etc.)
+            container.ts  (Contenedor de inyección de dependencias)
