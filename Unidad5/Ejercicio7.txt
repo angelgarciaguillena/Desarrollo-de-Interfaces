@@ -1,52 +1,75 @@
 /App
     /src
         /Domain
-            /Entities
-                Habitacion.ts  (Entidad que representa la habitación del hotel)
-                - id: int
-                - nombre: string
-                - precio: number
-                - maxPersonas: number
-                - Habitacion(id, nombre, precio, maxPersonas)
-                + getId(): int
-                + getNombre(): string
-                + getPrecio(): number
-                + getMaxPersonas(): number
+            /Interfaces
+                interface IFechaHabitacionUseCase
+                + List<HabitacionDTO> getHabitaciones(fechaEntrada: String, fechaSalida: String, numeroHabitacion: int, numeroPersonas: int)
 
             /DTO
-                HabitacionDTO.ts  (DTO que será utilizado para mostrar las habitaciones)
-                + habitacion: Habitacion
-                + HabitacionDTO(habitacion: Habitacion)
-
-            /Interfaces
-                IGetHabitacionesUseCase.ts  (Interfaz del caso de uso para obtener las habitaciones)
-                + execute(fechaEntrada: Date, fechaSalida: Date, numPersonas: number, numHabitaciones: number): HabitacionDTO[]
-
-            /Repositories
-                IHabitacionRepository.ts  (Interfaz del repositorio que obtiene las habitaciones)
-                + getListadoHabitaciones(): Habitacion[]  (Obtiene el listado estático de habitaciones)
+                HabitacionDTO
+                - numeroHabitacion: int
+                - precioTotal: double
+                + constructor(numeroHabitacion: int, precioTotal: double)
+                + double getNumeroHabitacion
+                + double getPrecioTotal
+                + setPrecioTotal(precioTotal: double)
 
             /UseCase
-                GetHabitacionesUseCase.ts  (Implementa IGetHabitacionesUseCase)
-                + execute(fechaEntrada: Date, fechaSalida: Date, numPersonas: number, numHabitaciones: number): HabitacionDTO[]
+                FechaHabitacionUseCase : IFechaHabitacionUseCase
+                - readonly IHabitacionesRepository _habitacionesRepository
+				- readonly IHabitacionToHabitacionDTO _mapper
+                + constructor(RepositorioHabitaciones listadoHabitaciones, DomainToUIMapper mapper){
+                    _mapper = mapper
+                    _listadoHabitaciones = listadoHabitaciones
+                }
+                + List<HabitacionDTO> getHabitacionesDTO(fechaEntrada: String, fechaSalida: String, numeroHabitacion: int, numeroPersonas: int) -> Recibimos los parametros y comprobamos si se puede realizar la reserva teniendo en cuenta los datos y se llama al mapper para transformar la Habitacion a HabitacionDTO y devuelve una lista de habitaciones
+                - boolean comprobarCapacidad(personas: int, numeroHabitaciones: int) -> Comprueba que el numero de personas en cada habitacion no sea maximo 3 personas por habitacion
+                - boolean comprobarFecha(fechaEntrada: String, fechaSalida: String) -> Comprueba que la fecha de entrada es mayor o igual a la de hoy y que la de entrada sea menor a la de salida
+
+            /Repositories
+                interface IRepositorioHabitaciones
+                + List<Habitacion> getHabitaciones()
+
+            /Entity
+                Habitacion.ts
+                - numeroHabitacion: int
+                - precio: double
+                + Habitacion()
+                + Habitacion(numeroHabitacion: int, precio: double)
+                + int getNumeroHabitacion()
+                + double getPrecio()
+                + setPrecio(precio: double)
+
+
+        /Presentations
+            /Views
+                ListadoHabitaciones.ts
+                FormularioReserva.ts
+
+            /ViewModels
+                ListadoHabitacionesViewModel.ts
+                - readonly IHabitacionesUseCases _habitacionesUseCases
+                + constructor(FechaHabitacionUseCase habitacionesUseCase){
+                    _habitacionesUseCases = habitacionesUseCase
+                }
+                + obtenerHabitaciones(fechaEntrada: String, fechaSalida: String, numeroHabitacion: int, numeroPersonas: int) -> Pasa los datos al caso de uso y trae la lista de las habitaciones y las manda a la vista
+
+
+            /Mappers
+                interface IDomainToUIMapper
+                + HabitacionDTO transformar(habitacion: Object Habitacion, fechaEntrada:String, fechaSalida: String)
+
+                DomainToUIMapper : IDomainToUIMapper
+                + HabitacionDTO transformar(habitacion: Object Habitacion, fechaEntrada:String, fechaSalida: String)
+        
 
         /Data
             /Repositories
-                HabitacionRepository.ts  (Implementación concreta de IHabitacionRepository)
-                + getListadoHabitaciones(): Habitacion[]  (Retorna las habitaciones estáticas)
+                RepositorioHabitaciones.ts : IRepositorioHabitaciones
+                - List<Habitacion> habitaciones
+                + List<Habitacion> getHabitaciones()
 
-        /Presentation
-            /Views
-                index.tsx  (Vista que muestra el listado de habitaciones)
-           
-            /ViewModels
-                HabitacionesVM.ts  (ViewModel que se comunica con el caso de uso)
-                + getHabitacionesUC: IGetHabitacionesUseCase
-                + obtenerHabitaciones(fechaEntrada: Date, fechaSalida: Date, numPersonas: number, numHabitaciones: number): HabitacionDTO[]
-
-            /Mappers
-                HabitacionMapper.ts  (Puede tener lógica de mapeo, por ejemplo, para validar que el número de personas no exceda el máximo de la habitación)
 
         /Core
-            types.ts  (Tipos comunes, como los tipos de datos de fechas, validación de inputs, etc.)
-            container.ts  (Contenedor de inyección de dependencias)
+            types.ts
+            container.ts
