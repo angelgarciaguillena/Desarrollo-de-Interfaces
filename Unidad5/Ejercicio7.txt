@@ -40,6 +40,13 @@
                 + double getPrecio()
                 + setPrecio(precio: double)
 
+            /Mappers
+                interface IDomainToUIMapper
+                + HabitacionDTO transformar(habitacion: Object Habitacion, fechaEntrada:String, fechaSalida: String)
+
+                DomainToUIMapper : IDomainToUIMapper
+                + HabitacionDTO transformar(habitacion: Object Habitacion, fechaEntrada:String, fechaSalida: String)
+
 
         /Presentations
             /Views
@@ -54,14 +61,6 @@
                 }
                 + obtenerHabitaciones(fechaEntrada: String, fechaSalida: String, numeroHabitacion: int, numeroPersonas: int) -> Pasa los datos al caso de uso y trae la lista de las habitaciones y las manda a la vista
 
-
-            /Mappers
-                interface IDomainToUIMapper
-                + HabitacionDTO transformar(habitacion: Object Habitacion, fechaEntrada:String, fechaSalida: String)
-
-                DomainToUIMapper : IDomainToUIMapper
-                + HabitacionDTO transformar(habitacion: Object Habitacion, fechaEntrada:String, fechaSalida: String)
-        
 
         /Data
             /Repositories

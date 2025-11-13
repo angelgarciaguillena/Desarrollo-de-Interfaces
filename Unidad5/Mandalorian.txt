@@ -1,0 +1,62 @@
+App/
+    src/
+        Domain/
+            Entities/
+                Mision.ts
+                    + class Mision
+                        - id: int {get}
+                        - nombre: String {get, set}
+                        - descripcion: String {get, set}
+                        - recompensa: double {get, set}
+                        + constructor()
+                        + constructor(id: int, nombre: String, descripcion: String, recompensa: double)
+
+            DTO/
+                MisionAsignada.ts
+                    + class MisionAsignada
+                        - List<Mision> misiones {get}
+                        - Mision MisionSeleccionada {get}
+                        + constructor(List<Mision> misiones)
+                        + constructor(List<Mision> misiones, Mision misionSeleccionada)
+
+            UseCase/
+                MediaNocheUseCase.ts
+                    + class MediaNocheUseCase: IMediaNocheUseCase
+                        - readonly RepositorioMisiones _listadoMisiones
+                        + constructor(RepositorioMisiones _listadoMisiones)
+                        + MisionAsignada getMisiones()
+                        + MisionAsignada getMisionById(id: int)
+                        - Boolean comprobarHorario(horario: int)
+
+            Interfaces/
+                IMediaNocheUseCase.ts
+                    + interface MisionSeleccionada
+                        + MisionAsignada getMisiones()
+                        + MisionAsignada getMisionById(id: int)
+
+            Repositories/
+                IRepositorioMisiones.ts
+                    + interface RepositorioMisiones
+                        + List<Mision> getMisiones()
+                        + Mision mision getMisionId(id: int)
+
+
+        Data/
+            Repositories/
+                RepositorioMisiones.ts
+                    + class RepositorioMisiones : IRepositorioMisiones
+                        + List<Mision> getMisiones()
+                        + Mision mision getMisionId(id: int)
+
+
+        Presentations/
+            Models/
+
+            Views/
+
+            ViewModels/
+
+
+        Core/
+            types.ts
+            container.ts
