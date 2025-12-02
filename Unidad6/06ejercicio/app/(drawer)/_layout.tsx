@@ -9,7 +9,7 @@ export default function DrawerLayout() {
         options={{
           title: "Inicio",
           drawerIcon: ({ color, size }: { color: string; size: number }) => (
-            <Ionicons name="home" size={size} color={color} />
+            <Ionicons name="home-outline" size={size} color={color} />
           ),
         }}
       />
@@ -18,7 +18,7 @@ export default function DrawerLayout() {
         options={{
           title: "Configuración",
           drawerIcon: ({ color, size }: { color: string; size: number }) => (
-            <Ionicons name="accessibility" size={size} color={color} />
+            <Ionicons name="settings-outline" size={size} color={color} />
           ),
         }}
       />
