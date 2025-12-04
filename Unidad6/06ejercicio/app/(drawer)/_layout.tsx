@@ -5,7 +5,7 @@ export default function DrawerLayout() {
   return (
     <Drawer>
       <Drawer.Screen
-        name="home"
+        name="(tabs)"
         options={{
           title: "Inicio",
           drawerIcon: ({ color, size }: { color: string; size: number }) => (
