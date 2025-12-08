@@ -1,0 +1,96 @@
+/App
+    /src
+        /Domain
+
+            /Entities
+                Pokemon.cs
+                - nombre: String
+                - url: String
+                + Pokemon()
+                + Pokemon(String nombre, String url)
+                + String getNombre()
+                + setNombre(String nuevoNombre)
+                + String getUrl()
+                + setUrl(String nuevaUrl)
+
+            /Interfaces
+                IPokemonUseCase.cs
+                interface IPokemonUseCase
+                    + List<PokemonWithGeneracion> getPokemons(int generacion)
+                    + PokemonWithGeneracion getPokemon(String nombre)
+                    + boolean createPokemon(Pokemon pokemon)
+                    + boolean updatePokemon(Pokemon pokemon)
+                    + boolean deletePokemon(String nombre)
+
+            /Repositories
+                IPokemonRepository.cs
+                interface IPokemonRepository
+                    + List<Pokemon> getPokemons()
+                    + Pokemon getPokemon()
+                    + boolean createPokemon(Pokemon pokemon)
+                    + boolean updatePokemon(Pokemon pokemon)
+                    + boolean deletePokemon(String nombre)
+
+            /DTO
+                PokemonWithGeneracion.cs
+                - nombre: String
+                - url: String
+                - generacion: int
+                + PokemonWithGeneracion(Pokemon pokemon, int generacion)
+                + String getNombre()
+                + setNombre(String nuevoNombre)
+                + String getUrl()
+                + setUrl(String nuevaUrl)
+                + int getGeneracion()
+                + setGeneracion(int nuevaGeneracion)
+
+            /UseCase
+                PokemonUseCase.cs
+                PokemonUseCase : IPokemonUseCase
+                    - readonly IPokemonRepository _pokemonRepository
+                    + PokemonUseCase(PokemonRepository pokemonRepository){
+                        _pokemonRepository = pokemonRepository
+                    }
+                    + List<PokemonWithGeneracion> getPokemons(int generacion)
+                    + PokemonWithGeneracion getPokemon(String nombre)
+                    + boolean createPokemon(Pokemon pokemon)
+                    + boolean updatePokemon(Pokemon pokemon)
+                    + boolean deletePokemon(String nombre)
+                    - int generacionPokemon(int edad)
+                    
+
+        /Data
+
+            /Repositories
+                PokemonRepository.cs
+                PokemonRepository : IPokemonRepository
+                    + List<Pokemon> getPokemons()
+                    + Pokemon getPokemon()
+                    + boolean createPokemon(Pokemon pokemon)
+                    + boolean updatePokemon(Pokemon pokemon)
+                    + boolean deletePokemon(String nombre)
+
+
+        /CompositionRoot
+            InversifyConfig.cs
+
+
+        /Presentation
+
+            /Models
+
+            /Views
+                Create.tsx
+                Update.tsx
+                Delete.tsx
+                Details.tsx
+                Index.tsx
+
+            /Controller
+                PokemonController.cs
+                    - readonly IPokemonUseCase _pokemonUseCase
+                    + PokemonController(PokemonUseCase pokemonUseCase){
+                        _pokemonUseCase = pokemonUseCase
+                    }
+                    + IActionResult Index()
+                    + IActionResult Create()
