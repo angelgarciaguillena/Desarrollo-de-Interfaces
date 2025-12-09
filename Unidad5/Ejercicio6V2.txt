@@ -15,16 +15,16 @@
 
             /Interfaces
                 IPokemonUseCase.cs
-                interface IPokemonUseCase
+                + interface IPokemonUseCase
                     + List<PokemonWithGeneracion> getPokemons(int generacion)
                     + PokemonWithGeneracion getPokemon(String nombre)
                     + boolean createPokemon(Pokemon pokemon)
-                    + boolean updatePokemon(Pokemon pokemon)
+                    + boolean updatePokemon(String nombre, Pokemon pokemon)
                     + boolean deletePokemon(String nombre)
 
             /Repositories
                 IPokemonRepository.cs
-                interface IPokemonRepository
+                + interface IPokemonRepository
                     + List<Pokemon> getPokemons()
                     + Pokemon getPokemon()
                     + boolean createPokemon(Pokemon pokemon)
@@ -46,24 +46,36 @@
 
             /UseCase
                 PokemonUseCase.cs
-                PokemonUseCase : IPokemonUseCase
+                + class PokemonUseCase : IPokemonUseCase
                     - readonly IPokemonRepository _pokemonRepository
-                    + PokemonUseCase(PokemonRepository pokemonRepository){
+                    + PokemonUseCase(IPokemonRepository pokemonRepository){
                         _pokemonRepository = pokemonRepository
                     }
                     + List<PokemonWithGeneracion> getPokemons(int generacion)
                     + PokemonWithGeneracion getPokemon(String nombre)
                     + boolean createPokemon(Pokemon pokemon)
-                    + boolean updatePokemon(Pokemon pokemon)
+                    + boolean updatePokemon(String nombre, Pokemon pokemon)
                     + boolean deletePokemon(String nombre)
                     - int generacionPokemon(int edad)
                     
 
         /Data
 
+            /Database
+                Conection.cs
+                + class Conection
+                    + String server { get; set; }
+                    + String dataBase { get; set; }
+                    + String user { get; set; }
+                    + String pass { get; set; }
+                    + Conection()
+                    + Conection(String server, String database, String user, String pass)
+                    + SqlConnection getConnection()
+                    + closeConnection(ref SqlConnection connection)
+
             /Repositories
                 PokemonRepository.cs
-                PokemonRepository : IPokemonRepository
+                + class PokemonRepository : IPokemonRepository
                     + List<Pokemon> getPokemons()
                     + Pokemon getPokemon()
                     + boolean createPokemon(Pokemon pokemon)
@@ -73,24 +85,45 @@
 
         /CompositionRoot
             InversifyConfig.cs
+            + class InversifyConfig
+                static IServiceCollection AddCompositionRoot(this IServiceCollection services, IConfiguration configuration)
+                    services.AddScoped<IPokemonRepository, PokemonRepository>()
+                    services.AddScoped<IPokemonUseCase, PokemonUseCase>()
 
 
-        /Presentation
+        /UI
 
             /Models
 
             /Views
-                Create.tsx
-                Update.tsx
-                Delete.tsx
-                Details.tsx
-                Index.tsx
+                
+                /Home
+                    Index.cshtml
+
+                /Pokemon
+                    Create.cshtml
+                    Update.cshtml
+                    Delete.cshtml
+                    Details.cshtml
+                    Index.cshtml
 
             /Controller
+                HomeController
+                + class HomeController : Controller
+                    + HomeController()
+                    + IActionResult Index()
+
                 PokemonController.cs
+                + class PokemonController : Controller
                     - readonly IPokemonUseCase _pokemonUseCase
-                    + PokemonController(PokemonUseCase pokemonUseCase){
+                    + PokemonController(IPokemonUseCase pokemonUseCase){
                         _pokemonUseCase = pokemonUseCase
                     }
                     + IActionResult Index()
+                    + IActionResult Details(String nombre)
                     + IActionResult Create()
+                    + IActionResult Create(Pokemon pokemon) [HttpPost]
+                    + IActionResult Update(String nombre) 
+                    + IActionResult Update(Pokemon pokemon) [HttpPost]
+                    + IActionResult Delete(String nombre)
+                    + IActionResult Delete(String nombre) [HttpPost]

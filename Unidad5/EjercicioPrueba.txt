@@ -1,0 +1,227 @@
+/App
+    /src
+
+        /CompositionRoot
+
+            InversifyConfig.cs
+            + class InversifyConfig
+                + static IServiceCollection AddCompositionRoot(this IServiceCollection services, IConfiguration configuration)
+                    services.AddScoped<ICursoRepositorio, CursoRepositorio>()
+                    services.AddScoped<IEstudianteRepositorio, EstudianteRepositorio>()
+                    services.AddScoped<ICursoUseCase, CursoUseCase>()
+                    services.AddScoped<IEstudianteUseCase, EstudianteUseCase>()
+
+
+        /Data
+
+            /Repositories
+
+                CursoRepositorio.cs
+                + class CursoRepositorio : ICursoRepositorio
+                    + List<Curso> getCursos()
+                    + Curso getCurso(int id)
+                    + int agregarCurso(Curso nuevoCurso)
+                    + int editarCurso(int idCurso, Curso cursoModificado)
+                    + int eliminarCurso(int idCurso)
+
+                EstudianteRepositorio.cs
+                + class EstudianteRepositorio : IEstudianteRepositorio
+                    + List<Estudiante> getEstudiantes()
+                    + Estudiante getEstudiante(int id)
+                    + int agregarEstudiante(Estudiante nuevoEstudiante)
+                    + int editarEstudiante(int idEstudiante, Estudiante estudianteModificado)
+                    + int eliminarEstudiante(int idEstudiante)
+                    + List<Estudiante> getEstudianteByCurso(int idCurso)
+
+
+            /Database
+
+                Conection.cs
+                + class Conection
+                    + String server { get; set; }
+                    + String dataBase { get; set; }
+                    + String user { get; set; }
+                    + String pass { get; set; }
+                    + Conection()
+                    + Conection(String server, String database, String user, String pass)
+                    + SqlConnection getConnection()
+                    + closeConnection(ref SqlConnection connection)
+
+
+        /Domain
+
+            /Entities
+
+                Curso.cs
+                + class Curso 
+                    - id: int
+                    - nombre: String 
+                    - descripcion: String 
+                    - fechaInicio: Date 
+                    - fechaFin: Date 
+                    + Curso()
+                    + Curso(int id, String nombre, String descripcion, Date fechaInicio, Date fechaFin)
+                    + int getId()
+                    + setId(nuevoId)
+                    + String getNombre()
+                    + setNombre(String nuevoNombre)
+                    + String getDescripcion()
+                    + setDescripcion(String descripcion)
+                    + Date getFechaInicio()
+                    + setFechaInicio(Date nuevaFechaInicio)
+                    + Date getFechaFin()
+                    + setFechaFin(Date nuevaFechaFin)
+                
+                Estudiante.cs
+                + class Estudiante 
+                    - id: int
+                    - nombre: String 
+                    - edad: int
+                    + Estudiante()
+                    + Estudiante(int id, String nombre, int edad)
+                    + int getId()
+                    + setId(nuevoId)
+                    + String getNombre()
+                    + setNombre(String nuevoNombre)
+                    + int getEdad()
+                    + setEdad(int nuevaEdad)
+
+
+            /DTO
+
+                EstudianteConNombreCurso.cs
+                + class EstudianteConNombreCurso
+                    + Estudiante estudiante {get;}
+                    + String nombreCurso {get;}
+                    + EstudianteConNombreCurso(Estudiante estudiante, String nombreCurso)
+
+                EstudianteConListadoCurso.cs
+                + class EstudianteConListadoCurso
+                    + Estudiante estudiante {get;}
+                    + List<Estudiante> listadoEstudiantes {get;}
+                    + EstudianteConListadoCurso(Estudiante estudiante, List<Estudiante> listadoEstudiantes)
+
+
+            /UseCases
+
+                EstudianteUseCase.cs
+                + class EstudianteUseCase : IEstudianteUseCase
+                    - readonly ICursoRepositorio _cursoRepositorio
+                    - readonly IEstudianteRepositorio _estudianteRepositorio
+                    + EstudianteUseCase(IEstudianteRepositorio estudianteRepositorio) {_cursoRepositorio = cursoRepositorio; _estudianteRepositorio = estudianteRepositorio}
+                    + List<EstudianteConNombreCurso> getEstudiantes()
+                    + EstudianteConNombreCurso getEstudiante(int id)
+                    + int agregarEstudiante(Estudiante nuevoEstudiante)
+                    + int editarEstudiante(int idEstudiante, Estudiante estudianteModificado)
+                    + int eliminarEstudiante(int idEstudiante)
+                    + List<Curso> getCursos()
+                    + List<Estudiante> getEstudianteByCurso(int idCurso)
+                    + EstudianteConListadoCurso getEstudianteConListadoCursos()
+
+                CursoUseCase.cs
+                + class CursoUseCase : ICursoUseCase
+                    - readonly ICursoRepositorio _cursoRepositorio
+                    + CursoUseCase(ICursoRepositorio cursoRepositorio) {_cursoRepositorio = cursoRepositorio}
+                    + List<Curso> getCursos()
+                    + int agregarCurso(Curso nuevoCurso)
+                    + int editarCurso(int idCurso, Curso cursoModificado)
+                    + int eliminarCurso(int idCurso)
+                    + Curso getCurso(int idCurso)
+
+
+            /Interfaces
+
+                ICursoRepositorio.cs
+                    + interface ICursoRepositorio
+                        + List<Curso> getCursos()
+                        + Curso getCurso(int id)
+                        + int agregarCurso(Curso nuevoCurso)
+                        + int editarCurso(Curso cursoModificado)
+                        + int eliminarCurso(int idCurso)
+
+                IEstudianteRepositorio.cs
+                    + interface IEstudianteRepositorio
+                        + List<Estudiante> getEstudiantes()
+                        + Estudiante getEstudiante(int id)
+                        + int agregarEstudiante(Estudiante nuevoEstudiante)
+                        + int editarEstudiante(Estudiante estudianteModificado)
+                        + int eliminarEstudiante(int idEstudiante)
+                        + List<Estudiante> getEstudianteByCurso(int idCurso)
+
+                ICursoUseCase.cs
+                    + interface ICursoUseCase
+                        + List<Curso> getCursos()
+                        + int agregarCurso(Curso nuevoCurso)
+                        + int editarCurso(int idCurso, Curso cursoModificado)
+                        + int eliminarCurso(int idCurso)
+                        + Curso getCurso(int idCurso)
+
+                IEstudianteUseCase.cs
+                    + interface IEstudianteUseCase
+                        + List<EstudianteConNombreCurso> getEstudiantes()
+                        + EstudianteConNombreCurso getEstudiante(int id)
+                        + int agregarEstudiante(Estudiante nuevoEstudiante)
+                        + int editarEstudiante(int idEstudiante, Estudiante estudianteModificado)
+                        + int eliminarEstudiante(int idEstudiante)
+                        + List<Curso> getCursos()
+                        + List<Estudiante> getEstudianteByCurso(int idCurso)
+                        + EstudianteConListadoCurso getEstudianteConListadoCursos()
+
+
+        /UI
+
+            /Views
+
+                /Home
+                    Index.cshtml
+
+                /Curso
+                    Index.cshtml
+                    Create.cshtml
+                    Details.cshtml
+                    Update.cshtml
+                    Delete.cshtml
+                
+                /Estudiante
+                    Index.cshtml
+                    Create.cshtml
+                    Details.cshtml
+                    Update.cshtml
+                    Delete.cshtml
+
+
+            /Controllers
+
+                HomeController.cs
+                + class HomeController : Controller
+                    + HomeController()
+                    + IActionResult Index()
+
+                CursoController.cs
+                + class CursoController : Controller
+                    - readonly ICursoUseCase _cursoUseCase
+                    + CursoController(ICursoUseCase cursoUseCase) { _cursoUseCase = cursoUseCase }
+                    + IActionResult Index()
+                    + IActionResult Details(int id)
+                    + IActionResult Create()
+                    + IActionResult Create(Curso nuevoCurso) [HttpPost]
+                    + IActionResult Update(int id)
+                    + IActionResult Update(Curso cursoModificado) [HttpPost]
+                    + IActionResult Delete(int id)
+                    + IActionResult Delete(int id) [HttpPost]
+
+                EstudianteController.cs
+                + class EstudianteController : Controller
+                    - readonly IEstudianteUseCase _estudianteUseCase
+                    + EstudianteController(IEstudianteUseCase estudianteUseCase) { _estudianteUseCase = estudianteUseCase }
+                    + IActionResult Index()
+                    + IActionResult Details(int id)
+                    + IActionResult Create()
+                    + IActionResult Create(Estudiante nuevoEstudiante) [HttpPost]
+                    + IActionResult Update(int id)
+                    + IActionResult Update(Estudiante estudianteModificado) [HttpPost]
+                    + IActionResult Delete(int id)
+                    + IActionResult Delete(int id) [HttpPost]
+
+
+            /Models
