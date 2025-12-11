@@ -36,8 +36,8 @@
 
             /Database
 
-                Conection.cs
-                + class Conection
+                Connection.cs
+                + class Connection
                     + String server { get; set; }
                     + String dataBase { get; set; }
                     + String user { get; set; }
@@ -165,7 +165,7 @@
                         + int eliminarEstudiante(int idEstudiante)
                         + List<Curso> getCursos()
                         + List<Estudiante> getEstudianteByCurso(int idCurso)
-                        + EstudianteConListadoCurso getEstudianteConListadoCursos()
+                        + EstudianteConListadoCurso getEstudianteConListadoCursos(int id)
 
 
         /UI
