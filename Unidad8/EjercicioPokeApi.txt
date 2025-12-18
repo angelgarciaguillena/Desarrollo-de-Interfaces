@@ -1,0 +1,66 @@
+/App
+    /src
+        /Domain
+
+            /Entities
+                Pokemon.ts
+                - nombre: String {get; set;}
+                - url: String {get; set;}
+                + Pokemon()
+                + Pokemon(String nombre, String url)
+
+            /Interfaces
+                IPokemonUseCase.ts
+                + interface IPokemonUseCase
+                    + List<PokemonConNombre> getPokemons(offset: int, limit: int)
+
+
+            /Repositories
+                IPokemonRepository.ts
+                + interface IPokemonRepository
+                    + List<Pokemon> getPokemons(offset: int, limit: int)
+
+
+            /DTO
+                PokemonConNombre.ts
+                - nombre: String {get;}
+                + PokemonConNombre(Pokemon pokemon)
+                
+
+            /UseCase
+                PokemonUseCase.ts
+                + class PokemonUseCase : IPokemonUseCase
+                    - readonly IPokemonRepository _pokemonRepository
+                    + PokemonUseCase(IPokemonRepository pokemonRepository){
+                        _pokemonRepository = pokemonRepository
+                    }
+                    + List<PokemonConNombre> getPokemons(offset: int, limit: int)
+
+
+        /Data
+
+            /Repositories
+                PokemonRepository.ts
+                + class PokemonRepository : IPokemonRepository
+                    + List<Pokemon> getPokemons(offset: int, limit: int)
+
+
+        /Core
+            container.ts
+
+
+        /UI
+
+            /Models
+
+            /Views
+                Index.tsx
+
+            /ViewModels
+                PokemonViewModel.ts
+                + class PokemonViewModel
+                    - readonly IPokemonUseCase _pokemonUseCase
+                    + constructor(IPokemonUseCase pokemonUseCase){
+                        _pokemonUseCase = pokemonUseCase
+                    }
+                    + obtenerPokemons(offset: int, limit: int)
