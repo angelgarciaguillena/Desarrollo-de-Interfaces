@@ -1,0 +1,198 @@
+App/
+    src/
+        Core/
+
+            Container.ts
+                container.bind<IPersonaRepository>(TYPES.IPersonaRepository).to(PersonaRepository);
+                container.bind<IDepartamentoRepository>(TYPES.IDepartamentoRepository).to(DepartamentoRepository);
+                container.bind<IPersonaUseCase>(TYPES.IPersonaUseCase).to(PersonaUseCase);
+                container.bind<IDepartamentoUseCase>(TYPES.IDepartamentoUseCase).to(DepartamentoUseCase);
+                container.bind<IDataToDomain>(TYPES.IDataToDomain).to(DataToDomain);
+                container.bind<IDomainToUI>(TYPES.IDomainToUI).to(DomainToUI);
+                container.bind<JuegoViewModel>(TYPES.JuegoViewModel).to(JuegoViewModel);
+
+
+            Types.ts
+                IPersonaRepository: Symbol.for("IPersonaRepository"), 
+                IDepartamentoRepository: Symbol.for("IDepartamentoRepository"), 
+                IPersonaUseCase: Symbol.for("IPersonaUseCase"),
+                IDepartamentoUseCase: Symbol.for("IDepartamentoUseCase"),
+                IDataToDomain: Symbol.for("IDataToDomain"),
+                IDomainToUI: Symbol.for("IDomainToUI"),
+                JuegoViewModel: Symbol.for("JuegoViewModel"), 
+            
+
+        Domain/
+
+            Entities/
+
+                Persona.ts
+                + class Persona
+                    - id: int {get; set;}
+                    - nombre: String {get; set;}
+                    - apellidos: String {get; set;}
+                    - fechaNacimiento: DateTime {get; set;}
+                    - direccion: String {get; set;}
+                    - telefono: String {get; set;}
+                    - foto: String {get; set;}
+                    - idDepartamento: int {get; set;}
+                    + Persona(id: int, nombre: String, apellidos: String, fechaNacimiento: DateTime, direccion: String, telefono: String, foto: String, idDepartamento: int)
+
+
+                Departamento.ts
+                + class Departamento
+                    - id: int {get; set;}
+                    - nombre: String {get; set;}
+                    + Departamento(id: int, nombre: String)
+
+
+            DTOs/
+
+                PersonaDTO.ts
+                + class PersonaDTO
+                    - id: int {get;}
+                    - nombre: String {get;}
+                    - apellidos: String {get;}
+                    - idDepartamento: int {get;}
+                    + PersonaDTO(id: int, nombre: String, apellidos: String, idDepartamento: int)
+
+
+                PersonaConListadoDepartamento.ts
+                + class PersonaConListadoDepartamento
+                    - PersonaDTO persona {get;}
+                    - List<Departamento> listadoDepartamentos {get;}
+                    + PersonaConListadoDepartamento(persona: PersonaDTO, listadoDepartamentos: List<Departamento>)
+
+
+                PersonaConDepartamentoSeleccionado.ts
+                + class PersonaConDepartamentoSeleccionado
+                    - PersonaDTO persona {get;}
+                    - Departamento departamento {get;}
+                    + PersonaConDepartamentoSeleccionado(persona: PersonaDTO, departamento: Departamento)
+
+
+            Interfaces/
+
+                IDepartamentoUseCase.ts
+                + interface IDepartamentoUseCase
+                    + List<Departamento> getDepartamentos()
+
+
+                IPersonaUseCase.ts
+                + interface IPersonaUseCase
+                    + List<PersonaConListadoDepartamento> getPersonas()
+                    + int comprobarAciertos(List<PersonaConDepartamentoSeleccionado> personas)
+            
+
+            Repositories/
+
+                IPersonaRepository.ts
+                + interface IPersonaRepository
+                    + List<Persona> getPersonas()
+
+                IDepartamentoRepository.ts
+                + interface IDepartamentoRepository
+                    + List<Departamento> getDepartamentos()
+
+
+            UseCases/
+
+                DepartamentoUseCase.ts
+                @injectable()
+                + class DepartamentoUseCase : IDepartamentoUseCase
+                    - readonly IDepartamentoRepository _departamentoRepository
+                    + DepartamentoUseCase(@inject(TYPES.IDepartamentoRepository) departamentoRepository: IDepartamentoRepository ){
+                        _departamentoRepository = departamentoRepository
+                    }
+                    + async List<Departamento> getDepartamentos()
+
+                
+                PersonaUseCase.ts
+                @injectable()
+                + class PersonaUseCase: IPersonaUseCase
+                    - readonly IPersonaRepository _personaRepository
+                    - readonly IDepartamentoUseCase _departamentoUseCase
+                    - readonly IDataToDomain _mapper
+                    + PersonaUseCase(@inject(TYPES.IPersonaRepository) personaRepository: IPersonaRepository, @inject(TYPES.IDepartamentoUseCase) departamentoUseCase: IDepartamentoUseCase, @inject(TYPES.IDataToDomain) mapper: IDataToDomain){
+                        _personaRepository = personaRepository
+                        _departamentoUseCase = departamentoUseCase
+                        _mapper = mapper
+                    }
+                    + async List<PersonaConListadoDepartamento> getPersonas()
+                    + int comprobarAciertos(List<PersonaConDepartamentoSeleccionado> personas)
+
+
+            Mappers/
+
+                IDataToDomain.ts
+                + interface IDataToDomain
+                    + PersonaDTO transformar(Persona persona)
+                    
+
+                DataToDomain.ts
+                @injectable()
+                + class DataToDomain : IDataToDomain
+                    + PersonaDTO transformar(Persona persona)
+
+
+        Data/
+        
+            Repositories/
+
+                PersonaRepository.ts
+                @injectable()
+                + class PersonaRepository : IPersonaRepository
+                    - urlPersonas: String
+                    + async List<Persona> getPersonas()
+
+
+                DepartamentoRepository.ts
+                @injectable()
+                + class DepartamentoRepository : IDepartamentoRepository
+                    - urlDepartamentos: String
+                    + async List<Departamento> getDepartamentos()
+
+
+        UI/
+
+            Mappers/
+
+                IDomainToUI.ts
+                + interface IDomainToUI
+                    + PersonaConColor transformar(PersonaConListadoDepartamento persona)
+                    
+
+                DomainToUI.ts
+                @injectable()
+                + class DomainToUI : IDomainToUI
+                    - List<String> colores
+                    + PersonaConColor transformar(PersonaConListadoDepartamento persona)
+                    
+            
+            Models/
+
+                PersonaConColor.ts
+                + class PersonaConColor
+                    - persona: PersonaDTO {get;}
+                    - departamentos: List<Departamento> {get;}
+                    - colorDepartamento: String {get;}
+                    + PersonaConColor(persona: PersonaDTO, departamentos: List<DepartamentoConColor>, colorDepartamento: String)
+
+
+            Views/
+                Index.tsx 
+
+
+            ViewModels/
+
+                JuegoViewModel.ts
+                @injectable()
+                + class JuegoViewModel
+                    - readonly IPersonaUseCase _personaUseCase
+                    - readonly IDomainToUI _mapper
+                    + JuegoViewModel(@inject(TYPES.IPersonaUseCase) personaUseCase: IPersonaUseCase, @inject(TYPES.IDomainToUI) mapper: IDomainToUI){
+                        _personaUseCase = personaUseCase
+                        _mapper = mapper
+                    }
+                    + async List<PeronaConColor> obtenerPersonas()
+                    + int verificarAciertos(List<PersonaConColor> personasConColor, Map<int, int> departamentosSeleccionados)
