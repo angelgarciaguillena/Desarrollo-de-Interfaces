@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\Unidad9\\SignalRChatClean\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|c:\\users\\angel.garcia\\documents\\github\\desarrollo-de-interfaces\\unidad9\\signalrchatclean\\signalrchatclean\\clsmensajeusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|solutionrelative:signalrchatclean\\clsmensajeusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|c:\\users\\angel.garcia\\documents\\github\\desarrollo-de-interfaces\\unidad9\\signalrchatclean\\signalrchatclean\\wwwroot\\js\\chat.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|solutionrelative:signalrchatclean\\wwwroot\\js\\chat.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|c:\\users\\angel.garcia\\documents\\github\\desarrollo-de-interfaces\\unidad9\\signalrchatclean\\signalrchatclean\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|solutionrelative:signalrchatclean\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|c:\\users\\angel.garcia\\documents\\github\\desarrollo-de-interfaces\\unidad9\\signalrchatclean\\signalrchatclean\\clsmensajeusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|solutionrelative:signalrchatclean\\clsmensajeusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|c:\\users\\angel.garcia\\documents\\github\\desarrollo-de-interfaces\\unidad9\\signalrchatclean\\signalrchatclean\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|solutionrelative:signalrchatclean\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|c:\\users\\angel.garcia\\documents\\github\\desarrollo-de-interfaces\\unidad9\\signalrchatclean\\signalrchatclean\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|solutionrelative:signalrchatclean\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|c:\\users\\angel.garcia\\documents\\github\\desarrollo-de-interfaces\\unidad9\\signalrchatclean\\signalrchatclean\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|solutionrelative:signalrchatclean\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|c:\\users\\angel.garcia\\documents\\github\\desarrollo-de-interfaces\\unidad9\\signalrchatclean\\signalrchatclean\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|solutionrelative:signalrchatclean\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|c:\\users\\angel.garcia\\documents\\github\\desarrollo-de-interfaces\\unidad9\\signalrchatclean\\signalrchatclean\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{57C3CCEF-6ADE-4208-AC7C-50A4C4EE38B9}|SignalRChatClean\\SignalRChatClean.csproj|solutionrelative:signalrchatclean\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,11 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "site.js",
               "DocumentMoniker": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\Unidad9\\SignalRChatClean\\SignalRChatClean\\wwwroot\\js\\site.js",
               "RelativeDocumentMoniker": "SignalRChatClean\\wwwroot\\js\\site.js",
@@ -46,12 +46,11 @@
               "RelativeToolTip": "SignalRChatClean\\wwwroot\\js\\site.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-01-20T11:43:27.223Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-20T11:43:27.223Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "clsMensajeUsuario.cs",
               "DocumentMoniker": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\Unidad9\\SignalRChatClean\\SignalRChatClean\\clsMensajeUsuario.cs",
               "RelativeDocumentMoniker": "SignalRChatClean\\clsMensajeUsuario.cs",
@@ -64,13 +63,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "chat.js",
               "DocumentMoniker": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\Unidad9\\SignalRChatClean\\SignalRChatClean\\wwwroot\\js\\chat.js",
               "RelativeDocumentMoniker": "SignalRChatClean\\wwwroot\\js\\chat.js",
               "ToolTip": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\Unidad9\\SignalRChatClean\\SignalRChatClean\\wwwroot\\js\\chat.js",
               "RelativeToolTip": "SignalRChatClean\\wwwroot\\js\\chat.js",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABoAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2026-01-20T11:07:37.517Z",
               "EditorCaption": ""
@@ -83,33 +82,33 @@
               "RelativeDocumentMoniker": "SignalRChatClean\\Pages\\Index.cshtml",
               "ToolTip": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\Unidad9\\SignalRChatClean\\SignalRChatClean\\Pages\\Index.cshtml",
               "RelativeToolTip": "SignalRChatClean\\Pages\\Index.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABsAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-01-20T11:06:41.118Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\Unidad9\\SignalRChatClean\\SignalRChatClean\\Program.cs",
               "RelativeDocumentMoniker": "SignalRChatClean\\Program.cs",
               "ToolTip": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\Unidad9\\SignalRChatClean\\SignalRChatClean\\Program.cs",
               "RelativeToolTip": "SignalRChatClean\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-20T11:05:30.185Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "ChatHub.cs",
               "DocumentMoniker": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\Unidad9\\SignalRChatClean\\SignalRChatClean\\Hubs\\ChatHub.cs",
               "RelativeDocumentMoniker": "SignalRChatClean\\Hubs\\ChatHub.cs",
               "ToolTip": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\Unidad9\\SignalRChatClean\\SignalRChatClean\\Hubs\\ChatHub.cs",
               "RelativeToolTip": "SignalRChatClean\\Hubs\\ChatHub.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-20T11:05:04.375Z",
               "EditorCaption": ""

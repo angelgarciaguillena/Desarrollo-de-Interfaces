@@ -1,0 +1,8 @@
+C:\Users\angel.garcia\Documents\GitHub\Desarrollo-de-Interfaces\Unidad9\SignalRChatClean\SignalRChatClean\obj\Release\net8.0\PubTmp\Out\SignalRChatClean.exe
+C:\Users\angel.garcia\Documents\GitHub\Desarrollo-de-Interfaces\Unidad9\SignalRChatClean\SignalRChatClean\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+C:\Users\angel.garcia\Documents\GitHub\Desarrollo-de-Interfaces\Unidad9\SignalRChatClean\SignalRChatClean\obj\Release\net8.0\PubTmp\Out\appsettings.json
+C:\Users\angel.garcia\Documents\GitHub\Desarrollo-de-Interfaces\Unidad9\SignalRChatClean\SignalRChatClean\obj\Release\net8.0\PubTmp\Out\libman.json
+C:\Users\angel.garcia\Documents\GitHub\Desarrollo-de-Interfaces\Unidad9\SignalRChatClean\SignalRChatClean\obj\Release\net8.0\PubTmp\Out\SignalRChatClean.dll
+C:\Users\angel.garcia\Documents\GitHub\Desarrollo-de-Interfaces\Unidad9\SignalRChatClean\SignalRChatClean\obj\Release\net8.0\PubTmp\Out\SignalRChatClean.deps.json
+C:\Users\angel.garcia\Documents\GitHub\Desarrollo-de-Interfaces\Unidad9\SignalRChatClean\SignalRChatClean\obj\Release\net8.0\PubTmp\Out\SignalRChatClean.runtimeconfig.json
+C:\Users\angel.garcia\Documents\GitHub\Desarrollo-de-Interfaces\Unidad9\SignalRChatClean\SignalRChatClean\obj\Release\net8.0\PubTmp\Out\SignalRChatClean.pdb
