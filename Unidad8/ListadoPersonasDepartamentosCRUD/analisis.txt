@@ -1,0 +1,270 @@
+src/
+    app/
+        Views/
+            Index.tsx
+
+            Personas/
+                ListadoPersonas.tsx (observer)
+                EditarInsertarPersona.tsx (observer)
+
+            Departamentos/
+                ListadoDepartamentos.tsx (observer)
+                EditarInsertarDepartamento.tsx (observer)
+    
+
+    Components/
+        PersonaListItem.tsx
+        DepartamentoListItem.tsx
+
+    
+    Core/
+        Types.ts
+            // Base
+            BaseApi: Symbol.for("BaseApi")
+
+            // APIs
+            IPersonaApi: Symbol.for("IPersonaApi")
+            IDepartamentoApi: Symbol.for("IDepartamentoApi")
+
+            // Repositories
+            IPersonaRepository: Symbol.for("IPersonaRepository"), 
+            IDepartamentoRepository: Symbol.for("IDepartamentoRepository"), 
+
+            // Use Cases
+            IPersonaUseCase: Symbol.for("IPersonaUseCase"),
+            IDepartamentoUseCase: Symbol.for("IDepartamentoUseCase"),
+                
+            // ViewModels
+            PersonaViewModel: Symbol.for("PersonaViewModel"), 
+            DepartamentoViewModel: Symbol.for("DepartamentoViewModel")
+
+            //Mappers
+            IDomainToUI: Symbol.for("IDomainToUI")
+        
+
+        Container.ts
+            // Base
+            container.bind<BaseApi>(TYPES.BaseApi).to(BaseApi).inSingletonScope();
+            
+            // APIs
+            container.bind<IPersonaApi>(TYPES.IPersonaApi).to(PersonaApi).inSingletonScope();
+            container.bind<IDepartamentoApi>(TYPES.IDepartamentoApi).to(DepartamentoApi).inSingletonScope();
+            
+            // Repositories
+            container.bind<IPersonaRepository>(TYPES.IPersonaRepository).to(PersonaRepository).inSingletonScope();
+            container.bind<IDepartamentoRepository>(TYPES.IDepartamentoRepository).to(DepartamentoRepository).inSingletonScope();
+            
+            // Use Cases
+            container.bind<IPersonaUseCase>(TYPES.IPersonaUseCase).to(PersonaUseCase);
+            container.bind<IDepartamentoUseCase>(TYPES.IDepartamentoUseCase).to(DepartamentoUseCase);
+
+            // ViewModels
+            container.bind<PersonaViewModel>(TYPES.PersonaViewModel).to(PersonaViewModel)
+            container.bind<DepartamentoViewModel>(TYPES.DepartamentoViewModel).to(DepartamentoViewModel)
+
+            //Mappers
+            container.bind<IDomainToUI>(TYPES.IDomainToUI).to(DomainToUI)
+
+    
+    Domain/
+        Entities/
+            Persona.ts
+                + class Persona
+                    - id: number { get; set; }
+                    - nombre: string { get; set; }
+                    - apellidos: string { get; set; }
+                    - fechaNacimiento: Date { get; set; }
+                    - direccion: string { get; set; }
+                    - telefono: string { get; set; }
+                    - foto: string { get; set; }
+                    - idDepartamento: number { get; set; }
+                    + Persona()
+                    + Persona(id, nombre, apellidos, fechaNacimiento, direccion, telefono, foto, idDepartamento)
+            
+            Departamento.ts
+                + class Departamento
+                    - idDepartamento: number { get; set; }
+                    - nombreDepartamento: string { get; set; }
+                    + Departamento()
+                    + Departamento(idDepartamento: number, nombreDepartamento: string)
+        
+        DTOs/
+            PersonaDTO.ts
+                + interface PersonaDTO
+                    + id, nombre, apellidos, fechaNacimiento, direccion, telefono, foto, idDepartamento, nombreDepartamento
+        
+
+        Interfaces/
+            Repositories/
+                IPersonaRepository.ts
+                    + interface IPersonaRepository
+                        + List<Persona> getPersonas() 
+                        + Persona getPersona(idPersona: int)
+                        + int agregarPersona(persona: Persona)
+                        + int actualizarPersona(persona: Persona)
+                        + int eliminarPersona(idPersona: int)
+
+                IDepartamentoRepository.ts
+                    + interface IDepartamentoRepository
+                        + List<Departamento> getDepartamentos()
+                        + Departamento getDepartamento(idDepartamento: int)
+                        + int agregarDepartamento(departamento: Departamento)
+                        + int actualizarDepartamento(departamento: Departamento), 
+                        + int eliminarDepartamento(idDepartamento: int)
+        
+            UseCases/
+                IPersonaUseCase.ts
+                    + interface IPersonaUseCase
+                        + List<PersonaDTO> getPersonas()
+                        + int agregarPersona(persona: Persona)
+                        + int actualizarPersona(persona: Persona)
+                        + int eliminarPersona(idPersona: int)
+                    
+                IDepartamentoUseCase.ts
+                    + interface IDepartamentoUseCase
+                        + List<Departamento> getDepartamentos()
+                        + int agregarDepartamento(departamento: Departamento)
+                        + int actualizarDepartamento(departamento: Departamento)
+                        + int eliminarDepartamento(idDepartamento: int)
+
+            APIs/
+                IPersonaApi.ts
+                    + interface IPersonaApi
+                        + List<Persona> getPersonas() 
+                        + Persona getPersona(idPersona: int)
+                        + int agregarPersona(persona: Persona)
+                        + int actualizarPersona(persona: Persona)
+                        + int eliminarPersona(idPersona: int)
+
+                IDepartamentoApi.ts
+                    + interface IDepartamentoApi
+                        + List<Departamento> getDepartamentos()
+                        + Departamento getDepartamento(idDepartamento: int)
+                        + int agregarDepartamento(departamento: Departamento)
+                        + int actualizarDepartamento(departamento: Departamento), 
+                        + int eliminarDepartamento(idDepartamento: int)
+
+
+        UseCases/
+            PersonaUseCase.ts
+                @injectable()
+                + class PersonaUseCase : IPersonaUseCase
+                    + PersonaUseCases(@inject(TYPES.IPersonaRepository) private readonly personaRepository: IPersonaRepository)
+                    + async List<PersonaDTO> getPersonas()
+                    + async int agregarPersona(persona: Persona)
+                    + async int actualizarPersona(persona: Persona)
+                    + async int eliminarPersona(idPersona: int)
+                    - int obtenerDia()
+                    - boolean comprobarEliminacion()
+                    
+            
+            DepartamentoUseCase.ts
+                @injectable()
+                + class DepartamentoUseCase : IDepartamentoUseCase
+                    + DepartamentoUseCases(@inject(TYPES.IDepartamentoRepository) private readonly departamentoRepository: IDepartamentoRepository)
+                    + async List<Departamento> getDepartamentos()
+                    + async int agregarDepartamento(departamento: Departamento)
+                    + async int actualizarDepartamento(departamento: Departamento)
+                    + async int eliminarDepartamento(idDepartamento: int)
+    
+
+    Data/
+        API/
+            BaseApi.ts
+                @injectable()
+                + class BaseApi
+                    - readonly URL: string = "https://ui20251201134838-gqgjeaf9bycuf0gn.spaincentral-01.azurewebsites.net/"
+                    + String getBaseUrl(endpoint: string)-> new URL(endpoint, URL).toString()
+                    + HeadersInit getDefaultHeaders()-> { "Content-Type": "application/json" }
+
+
+            PersonaApi.ts
+                @injectable()
+                + class PersonaApi : IPersonaApi
+                    + PersonaApi(@inject(TYPES.BaseApi) private readonly baseApi: BaseApi)
+                    + async List<Persona> getPersonas() -> GET /api/Personas
+                    + async Persona getPersona(idPersona: int) -> GET /api/Personas/{id}
+                    + async int agregarPersona(persona: Persona) -> POST /api/Personas
+                    + async int actualizarPersona(persona: Persona) -> PUT /api/Personas/{id}
+                    + async int eliminarPersona(idPersona: int) -> DELETE /api/Personas/{id}
+            
+            DepartamentoApi.ts
+                @injectable()
+                + class DepartamentoApi : IDepartamentoApi
+                    + DepartamentoApi(@inject(TYPES.BaseApi) private readonly baseApi: BaseApi)
+                    + async List<Departamento> getDepartamentos() -> GET /api/Departamentos
+                    + async Departamento getDepartamento(idDepartamento: int) -> GET /api/Departamentos/{id}
+                    + async int agregarDepartamento(departamento: Departamento) -> POST /api/Departamentos
+                    + async int actualizarDepartamento(departamento: Departamento) -> PUT /api/Departamentos/{id}
+                    + async int eliminarDepartamento(idDepartamento: int) -> DELETE /api/Departamentos/{id}
+        
+
+        Repositories/
+            PersonaRepository.ts
+                @injectable()
+                + class PersonaRepository : IPersonaRepository
+                    + PersonaRepository(@inject(TYPES.IPersonaApi) private readonly personaApi: IPersonaApi)
+                    + async List<Persona> getPersonas() 
+                    + async Persona getPersona(idPersona: int)
+                    + async int agregarPersona(persona: Persona) 
+                    + async int actualizarPersona(persona: Persona)
+                    + async int eliminarPersona(idPersona: int)
+            
+            DepartamentoRepository.ts
+                @injectable()
+                + class DepartamentoRepository : IDepartamentoRepository
+                    + DepartamentoRepository(@inject(TYPES.IDepartamentoApi) private readonly departamentoApi: IDepartamentoApi)
+                    + async List<Departamento> getDepartamentos() 
+                    + async Departamento getDepartamento(idDepartamento: int) 
+                    + async int agregarDepartamento(departamento: Departamento)
+                    + async int actualizarDepartamento(departamento: Departamento) 
+                    + async int eliminarDepartamento(idDepartamento: int)
+    
+
+    UI/
+        Models/
+            PersonaConIcono.ts
+                + interface PersonaUIModel extends PersonaDTO
+                    + iniciales: string
+                
+
+        Mapper/
+            DomainToUI.ts
+                + class DomainToUI : IDomainToUI
+                    + PersonaConIcono transformar(persona: PersonaDTO) 
+
+            IDomainToUI.ts
+                + interface IDomainToUI
+                    + PersonaConIcono transformar(persona: PersonaDTO)
+
+
+        ViewModels/
+            PersonaViewModel.ts (Singleton, MobX)
+                @injectable()
+                + class PersonaViewModel
+                    + personas: List<PersonaConIcono> (observable)
+                    + personaSeleccionada: PersonaConIcono | null (observable)
+                    + isLoading, error (observable)
+                    + PersonaViewModel(@inject(TYPES.IPersonaUseCase) private readonly personaUseCase: IPersonaUseCase){
+                        makeAutoObservable(this);
+                    }
+                    + static getInstance() -> Singleton
+                    + async cargarPersonas() -> getPersonas, mapea a PersonaUIModel
+                    + async agregarPersona() 
+                    + async actualizarPersona() 
+                    + async eliminarPersona() 
+                    + seleccionarPersona()
+            
+            DepartamentoViewModel.ts (Singleton, MobX)
+                @injectable()
+                + class DepartamentoViewModel
+                    + departamentos: List<Departamento> (observable)
+                    + isLoading, error (observable)
+                    + DepartamentoViewModel(@inject(TYPES.IDepartamentoUseCase) private readonly departamentoUseCase: IDepartamentoUseCase){
+                        makeAutObservable(this)
+                    }
+                    + static getInstance() -> Singleton
+                    + async cargarDepartamentos() -> getDepartamentos
+                    + async agregarDepartamento()
+                    + async actualizarDepartamento()
+                    + async eliminarDepartamento()
