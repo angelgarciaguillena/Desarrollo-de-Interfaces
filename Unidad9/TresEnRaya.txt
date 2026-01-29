@@ -1,9 +1,78 @@
 SignalR(C#)
+App/
+    src/
+        Entities/
+            Jugador.cs
+                + class Jugador 
+                    - ficha: char { get; set; }
+                    - turno: boolean { get; set; }
+                    + Jugador(char ficha, boolean turno)
 
+            Movimiento.cs
+                + class Movimiento
+                    - fichaJugador: char { get; set;}
+                    - posicionX: int { get; set; }
+                    - posicionY: int { get; set; }
+                    + Movimiento(char fichaJugador, int posicionX, int posicionY, boolean ganador)
 
+        Aplicacion/
+            EstadoJuego.cs
+                + class EstadoJuego
+                    - static int numeroJugadores { get; set; }
 
-
-
+        Hubs/
+            PartidaHub.cs
+                + class PartidaHub
+                    + async Task unirJugador()
+                    + async Task enviarMovimiento(Movimiento movimiento)
+                    + async Task terminarPartida()
+                    + async Task terminarJuego()
 
 
 React-Native(TS)
+App/
+    src/
+        Core/
+            Types.ts
+            Container.ts
+
+        Domain/
+            Entities/
+                Jugador.ts
+                    + class Jugador 
+                        - ficha: char { get; set; }
+                        - turno: boolean { get; set; }
+                        + Jugador(String ficha, Boolean turno)
+
+                Movimiento.ts
+                    + class Movimiento
+                        - fichaJugador: char { get; set;}
+                        - posicionX: int { get; set; }
+                        - posicionY: int { get; set; }
+                        + Movimiento(char fichaJugador, int posicionX, int posicionY, boolean ganador)
+
+            Interfaces/
+                IJuegoUseCase.ts
+                    + interface IJuegoUseCase
+
+
+            UseCases/
+                JuegoUseCase.ts
+                    + class JuegoUseCase : IJuegoUseCase
+
+
+        Data/
+            SignalRConnection.ts
+
+
+        UI/
+
+            Models/
+
+            Views/
+                UnirseVista.tsx
+                VistaTableroVista.tsx
+                JuegoFinalizadoVista.tsx
+                
+            ViewModels/
+                JuegoViewModel.ts
