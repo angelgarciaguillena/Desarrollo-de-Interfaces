@@ -13,7 +13,7 @@ export class JuegoConnection {
 
   constructor(@inject(TYPES.HubUrl) hubUrl: string) {
     this.hubUrl = hubUrl;
-    console.log(`[SignalRConnection] Hub URL: ${hubUrl}`);  // ✅ CORREGIDO
+    console.log(`[SignalRConnection] Hub URL: ${hubUrl}`); 
   }
 
   /**
@@ -26,11 +26,16 @@ export class JuegoConnection {
     }
 
     this.connection = new signalR.HubConnectionBuilder()
-      .withUrl(this.hubUrl)
-      .withAutomaticReconnect()
-      .configureLogging(signalR.LogLevel.Information)
+      .withUrl(this.hubUrl, {
+        transport: signalR.HttpTransportType.WebSockets | 
+                   signalR.HttpTransportType.ServerSentEvents | 
+                   signalR.HttpTransportType.LongPolling,
+        skipNegotiation: false,
+      })
+      .withAutomaticReconnect([0, 2000, 5000, 10000])
+      .configureLogging(signalR.LogLevel.Warning)
       .build();
-    
+      
     try {
       await this.connection.start();
       console.log("[SignalRConnection] ✅ Conectado al hub");
