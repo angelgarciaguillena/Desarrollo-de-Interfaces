@@ -9,41 +9,41 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TresEnRayaServidor
 build_property.RootNamespace = TresEnRayaServidor
-build_property.ProjectDir = C:\Users\angel.garcia\Documents\GitHub\Desarrollo-de-Interfaces\TresEnRaya\TresEnRayaServidor\
+build_property.ProjectDir = C:\Users\Usuario\Documents\Desarrollo-de-Interfaces\TresEnRaya\TresEnRayaServidor\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\angel.garcia\Documents\GitHub\Desarrollo-de-Interfaces\TresEnRaya\TresEnRayaServidor
+build_property.MSBuildProjectDirectory = C:\Users\Usuario\Documents\Desarrollo-de-Interfaces\TresEnRaya\TresEnRayaServidor
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/angel.garcia/Documents/GitHub/Desarrollo-de-Interfaces/TresEnRaya/TresEnRayaServidor/Pages/Error.cshtml]
+[C:/Users/Usuario/Documents/Desarrollo-de-Interfaces/TresEnRaya/TresEnRayaServidor/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/angel.garcia/Documents/GitHub/Desarrollo-de-Interfaces/TresEnRaya/TresEnRayaServidor/Pages/Index.cshtml]
+[C:/Users/Usuario/Documents/Desarrollo-de-Interfaces/TresEnRaya/TresEnRayaServidor/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/angel.garcia/Documents/GitHub/Desarrollo-de-Interfaces/TresEnRaya/TresEnRayaServidor/Pages/Privacy.cshtml]
+[C:/Users/Usuario/Documents/Desarrollo-de-Interfaces/TresEnRaya/TresEnRayaServidor/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/angel.garcia/Documents/GitHub/Desarrollo-de-Interfaces/TresEnRaya/TresEnRayaServidor/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Usuario/Documents/Desarrollo-de-Interfaces/TresEnRaya/TresEnRayaServidor/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/angel.garcia/Documents/GitHub/Desarrollo-de-Interfaces/TresEnRaya/TresEnRayaServidor/Pages/_ViewImports.cshtml]
+[C:/Users/Usuario/Documents/Desarrollo-de-Interfaces/TresEnRaya/TresEnRayaServidor/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/angel.garcia/Documents/GitHub/Desarrollo-de-Interfaces/TresEnRaya/TresEnRayaServidor/Pages/_ViewStart.cshtml]
+[C:/Users/Usuario/Documents/Desarrollo-de-Interfaces/TresEnRaya/TresEnRayaServidor/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/angel.garcia/Documents/GitHub/Desarrollo-de-Interfaces/TresEnRaya/TresEnRayaServidor/Pages/Shared/_Layout.cshtml]
+[C:/Users/Usuario/Documents/Desarrollo-de-Interfaces/TresEnRaya/TresEnRayaServidor/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-0wqoq8kvmd

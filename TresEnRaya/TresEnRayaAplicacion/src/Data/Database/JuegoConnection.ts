@@ -26,10 +26,7 @@ export class JuegoConnection {
     }
 
     this.connection = new signalR.HubConnectionBuilder()
-      .withUrl(this.hubUrl, {
-        transport: signalR.HttpTransportType.WebSockets,
-        skipNegotiation: true
-      })
+      .withUrl(this.hubUrl)
       .withAutomaticReconnect()
       .configureLogging(signalR.LogLevel.Information)
       .build();
