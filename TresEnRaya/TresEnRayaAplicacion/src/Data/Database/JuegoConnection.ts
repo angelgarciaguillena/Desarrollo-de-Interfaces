@@ -26,11 +26,14 @@ export class JuegoConnection {
     }
 
     this.connection = new signalR.HubConnectionBuilder()
-      .withUrl(this.hubUrl)
+      .withUrl(this.hubUrl, {
+        transport: signalR.HttpTransportType.WebSockets,
+        skipNegotiation: true
+      })
       .withAutomaticReconnect()
       .configureLogging(signalR.LogLevel.Information)
       .build();
-
+    
     try {
       await this.connection.start();
       console.log("[SignalRConnection] ✅ Conectado al hub");

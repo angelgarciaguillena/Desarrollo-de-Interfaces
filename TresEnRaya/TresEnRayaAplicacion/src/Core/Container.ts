@@ -8,8 +8,7 @@ import { JuegoUseCase } from "../Domain/UseCases/JuegoUseCase";
 import { IJuegoUseCase } from "../Domain/Interfaces/IJuegoUseCase";
 import { JuegoViewModel } from "../UI/ViewModels/JuegoViewModel";
 
-// IMPORTANTE: Cambiar esta IP por la de tu máquina
-const HUB_URL = "http://192.168.1.17:7004/gamehub";
+const HUB_URL = "https://tresenrayaservidor-hhhzf7fdcfe5hkaz.spaincentral-01.azurewebsites.net/gamehub";
 
 const container = new Container();
 

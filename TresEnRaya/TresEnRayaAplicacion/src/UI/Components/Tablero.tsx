@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Platform } from "react-native";
 import { Casilla } from "./Casilla";
 
 interface TableroProps {
@@ -33,19 +33,32 @@ export const Tablero: React.FC<TableroProps> = ({
   };
 
   return (
-    <View style={styles.tableroContainer}>
-      {renderFila(0)}
-      {renderFila(3)}
-      {renderFila(6)}
+    <View style={styles.tableroWrapper}>
+      <View style={styles.tableroContainer}>
+        {renderFila(0)}
+        {renderFila(3)}
+        {renderFila(6)}
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  tableroContainer: {
-    justifyContent: "center",
+  tableroWrapper: {
     alignItems: "center",
-    marginVertical: 20,
+    justifyContent: "center",
+  },
+  tableroContainer: {
+    backgroundColor: "rgba(255, 255, 255, 0.05)",
+    padding: 15,
+    borderRadius: 25,
+    borderWidth: 2,
+    borderColor: "rgba(255, 255, 255, 0.1)",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.4,
+    shadowRadius: 15,
+    elevation: 10,
   },
   fila: {
     flexDirection: "row",
