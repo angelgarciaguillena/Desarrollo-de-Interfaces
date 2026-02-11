@@ -1,5 +1,5 @@
-import { injectable, inject } from "inversify";
 import * as signalR from "@microsoft/signalr";
+import { inject, injectable } from "inversify";
 import { TYPES } from "../../Core/Types";
 
 /**

@@ -1,25 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Usuario\\Documents\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\",
+  "WorkspaceRootPath": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E02A57EC-7BBB-47C6-9277-605FE7D42DFC}|TresEnRayaServidor.csproj|c:\\users\\usuario\\documents\\desarrollo-de-interfaces\\tresenraya\\tresenrayaservidor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E02A57EC-7BBB-47C6-9277-605FE7D42DFC}|TresEnRayaServidor.csproj|c:\\users\\angel.garcia\\documents\\github\\desarrollo-de-interfaces\\tresenraya\\tresenrayaservidor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E02A57EC-7BBB-47C6-9277-605FE7D42DFC}|TresEnRayaServidor.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E02A57EC-7BBB-47C6-9277-605FE7D42DFC}|TresEnRayaServidor.csproj|c:\\users\\usuario\\documents\\desarrollo-de-interfaces\\tresenraya\\tresenrayaservidor\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{E02A57EC-7BBB-47C6-9277-605FE7D42DFC}|TresEnRayaServidor.csproj|c:\\users\\angel.garcia\\documents\\github\\desarrollo-de-interfaces\\tresenraya\\tresenrayaservidor\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{E02A57EC-7BBB-47C6-9277-605FE7D42DFC}|TresEnRayaServidor.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E02A57EC-7BBB-47C6-9277-605FE7D42DFC}|TresEnRayaServidor.csproj|c:\\users\\usuario\\documents\\desarrollo-de-interfaces\\tresenraya\\tresenrayaservidor\\hubs\\gamehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E02A57EC-7BBB-47C6-9277-605FE7D42DFC}|TresEnRayaServidor.csproj|c:\\users\\angel.garcia\\documents\\github\\desarrollo-de-interfaces\\tresenraya\\tresenrayaservidor\\hubs\\gamehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E02A57EC-7BBB-47C6-9277-605FE7D42DFC}|TresEnRayaServidor.csproj|solutionrelative:hubs\\gamehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E02A57EC-7BBB-47C6-9277-605FE7D42DFC}|TresEnRayaServidor.csproj|c:\\users\\usuario\\documents\\desarrollo-de-interfaces\\tresenraya\\tresenrayaservidor\\entities\\jugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E02A57EC-7BBB-47C6-9277-605FE7D42DFC}|TresEnRayaServidor.csproj|c:\\users\\angel.garcia\\documents\\github\\desarrollo-de-interfaces\\tresenraya\\tresenrayaservidor\\entities\\jugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E02A57EC-7BBB-47C6-9277-605FE7D42DFC}|TresEnRayaServidor.csproj|solutionrelative:entities\\jugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E02A57EC-7BBB-47C6-9277-605FE7D42DFC}|TresEnRayaServidor.csproj|c:\\users\\usuario\\documents\\desarrollo-de-interfaces\\tresenraya\\tresenrayaservidor\\aplicacion\\estadojuego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E02A57EC-7BBB-47C6-9277-605FE7D42DFC}|TresEnRayaServidor.csproj|c:\\users\\angel.garcia\\documents\\github\\desarrollo-de-interfaces\\tresenraya\\tresenrayaservidor\\aplicacion\\estadojuego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E02A57EC-7BBB-47C6-9277-605FE7D42DFC}|TresEnRayaServidor.csproj|solutionrelative:aplicacion\\estadojuego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -36,9 +36,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Documents\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\Program.cs",
+              "ToolTip": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -49,9 +49,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\Usuario\\Documents\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\appsettings.json",
+              "ToolTip": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -61,9 +61,9 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "EstadoJuego.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\Aplicacion\\EstadoJuego.cs",
+              "DocumentMoniker": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\Aplicacion\\EstadoJuego.cs",
               "RelativeDocumentMoniker": "Aplicacion\\EstadoJuego.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Documents\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\Aplicacion\\EstadoJuego.cs",
+              "ToolTip": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\Aplicacion\\EstadoJuego.cs",
               "RelativeToolTip": "Aplicacion\\EstadoJuego.cs",
               "ViewState": "AgIAAHkAAAAAAAAAAAAmwJwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -73,9 +73,9 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "GameHub.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\Hubs\\GameHub.cs",
+              "DocumentMoniker": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\Hubs\\GameHub.cs",
               "RelativeDocumentMoniker": "Hubs\\GameHub.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Documents\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\Hubs\\GameHub.cs",
+              "ToolTip": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\Hubs\\GameHub.cs",
               "RelativeToolTip": "Hubs\\GameHub.cs",
               "ViewState": "AgIAAGYAAAAAAAAAAAAuwIoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -85,9 +85,9 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Jugador.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\Entities\\Jugador.cs",
+              "DocumentMoniker": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\Entities\\Jugador.cs",
               "RelativeDocumentMoniker": "Entities\\Jugador.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Documents\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\Entities\\Jugador.cs",
+              "ToolTip": "C:\\Users\\angel.garcia\\Documents\\GitHub\\Desarrollo-de-Interfaces\\TresEnRaya\\TresEnRayaServidor\\Entities\\Jugador.cs",
               "RelativeToolTip": "Entities\\Jugador.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAIwDAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

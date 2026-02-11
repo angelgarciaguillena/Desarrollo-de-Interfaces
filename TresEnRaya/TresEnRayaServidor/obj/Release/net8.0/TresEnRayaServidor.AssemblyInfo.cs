@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TresEnRayaServidor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f4a719dc9d8efaf0849b5304e298be635d010336")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+90242c860807370ea86a76576174d94f6dc91d0c")]
 [assembly: System.Reflection.AssemblyProductAttribute("TresEnRayaServidor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TresEnRayaServidor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
