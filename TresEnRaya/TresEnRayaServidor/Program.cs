@@ -2,36 +2,35 @@
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddRazorPages();
+
+builder.Services.AddSignalR();
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("AllowReactNative", policy =>
     {
-        policy.SetIsOriginAllowed(_ => true) // Permite cualquier origen (desarrollo)
-              .AllowAnyHeader()
+        policy.AllowAnyHeader()
               .AllowAnyMethod()
-              .AllowCredentials();
+              .SetIsOriginAllowed((host) => true) // Permite cualquier origen (ideal para apps móviles)
+              .AllowCredentials();               // Obligatorio para SignalR
     });
 });
 
-builder.Services.AddSignalR(options =>
-{
-    options.EnableDetailedErrors = true; // Solo para desarrollo
-    options.KeepAliveInterval = TimeSpan.FromSeconds(10); // Mantener conexión viva
-    options.ClientTimeoutInterval = TimeSpan.FromSeconds(30); // Timeout del cliente
-});
-
-builder.Services.AddRazorPages();
-
 var app = builder.Build();
+
+app.UseWebSockets();
+app.UseCors("AllowReactNative");
+
 
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
     app.UseHsts();
 }
+app.UseHttpsRedirection();
+app.UseStaticFiles();
 
-app.UseCors("AllowAll");
-app.UseWebSockets();
 app.UseRouting();
 
 app.MapRazorPages();
