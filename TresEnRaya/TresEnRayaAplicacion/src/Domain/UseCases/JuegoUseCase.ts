@@ -24,23 +24,19 @@ export class JuegoUseCase implements IJuegoUseCase {
     estadoJuego: EstadoJuego,
     miSimbolo: string
   ): Promise<boolean> {
-    console.log(`[UseCase] Intentando movimiento: posición=${posicion}, símbolo=${miSimbolo}`);
 
     // Validación: verificar que sea mi turno
     if (estadoJuego.turnoActual !== miSimbolo) {
-      console.log("[UseCase] ❌ No es tu turno");
       return false;
     }
 
     // Validación: verificar que la casilla esté vacía
     if (!estadoJuego.casillaaVacia(posicion)) {
-      console.log("[UseCase] ❌ Casilla ocupada");
       return false;
     }
 
     // Validación: verificar que el juego no haya terminado
     if (estadoJuego.juegoTerminado) {
-      console.log("[UseCase] ❌ Juego terminado");
       return false;
     }
 
@@ -51,10 +47,8 @@ export class JuegoUseCase implements IJuegoUseCase {
       // Enviar al servidor para sincronizar con el otro jugador
       try {
         await this.juegoRepository.sendMove(posicion);
-        console.log("[UseCase] ✅ Movimiento enviado al servidor");
         return true;
       } catch (error) {
-        console.error("[UseCase] ❌ Error al enviar movimiento:", error);
         return false;
       }
     }
@@ -66,12 +60,9 @@ export class JuegoUseCase implements IJuegoUseCase {
    * Reiniciar el juego
    */
   async reiniciarJuego(): Promise<void> {
-    console.log("[UseCase] Solicitando reinicio de juego");
     try {
       await this.juegoRepository.sendReset();
-      console.log("[UseCase] ✅ Reinicio solicitado");
     } catch (error) {
-      console.error("[UseCase] ❌ Error al reiniciar:", error);
       throw error;
     }
   }

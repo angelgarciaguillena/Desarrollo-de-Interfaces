@@ -38,37 +38,30 @@ export class JuegoRepository implements IJuegoRepository {
     
     // Bind de handlers
     this.boundJugadorUnido = (event: JugadorUnidoEvent) => {
-      console.log("[GameRepo] Evento: JugadorUnido", event);
       this.jugadorUnidoHandlers.forEach((h) => h(event));
     };
 
     this.boundPartidaLista = (event: any) => {
-      console.log("[GameRepo] Evento: PartidaLista", event);
       this.partidaListaHandlers.forEach((h) => h(event));
     };
 
     this.boundMovimientoRealizado = (event: MovimientoRealizadoEvent) => {
-      console.log("[GameRepo] Evento: MovimientoRealizado", event);
       this.movimientoRealizadoHandlers.forEach((h) => h(event));
     };
 
     this.boundPartidaReiniciada = () => {
-      console.log("[GameRepo] Evento: PartidaReiniciada");
       this.partidaReiniciadaHandlers.forEach((h) => h());
     };
 
     this.boundOponenteDesconectado = () => {
-      console.log("[GameRepo] Evento: OponenteDesconectado");
       this.oponenteDesconectadoHandlers.forEach((h) => h());
     };
 
     this.boundOponenteSalio = () => {
-      console.log("[GameRepo] Evento: OponenteSalio");
       this.oponenteSalioHandlers.forEach((h) => h());
     };
 
     this.boundActualizacionJugadores = (event: any) => {
-      console.log("[GameRepo] Evento: ActualizacionJugadores", event);
       this.actualizacionJugadoresHandlers.forEach((h) => h(event));
     };
   }
@@ -87,8 +80,6 @@ export class JuegoRepository implements IJuegoRepository {
     this.conn.on("OponenteDesconectado", this.boundOponenteDesconectado);
     this.conn.on("OponenteSalio", this.boundOponenteSalio);
     this.conn.on("ActualizacionJugadores", this.boundActualizacionJugadores);
-    
-    console.log("[GameRepo] ✅ Listeners registrados");
   }
 
   async unirseAPartida(nombre: string): Promise<void> {
@@ -109,7 +100,6 @@ export class JuegoRepository implements IJuegoRepository {
     this.conn.off("ActualizacionJugadores", this.boundActualizacionJugadores);
     
     await this.conn.disconnect();
-    console.log("[GameRepo] Desconectado");
   }
 
   /**

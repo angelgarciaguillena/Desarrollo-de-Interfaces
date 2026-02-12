@@ -33,32 +33,27 @@ export class EstadoJuego {
   hacerMovimiento(posicion: number, simbolo: string): boolean {
     // Validar que la posición esté vacía
     if (this.tablero[posicion] !== null) {
-      console.log("⚠️ Casilla ya ocupada");
       return false;
     }
 
     // Validar que sea el turno correcto
     if (this.turnoActual !== simbolo) {
-      console.log("⚠️ No es tu turno");
       return false;
     }
 
     // Validar que el juego no haya terminado
     if (this.juegoTerminado) {
-      console.log("⚠️ El juego ya terminó");
       return false;
     }
 
     // Realizar el movimiento
     this.tablero[posicion] = simbolo;
-    console.log(`✅ Movimiento realizado: ${simbolo} en posición ${posicion}`);
 
     // Verificar si hay ganador
     const hayGanador = this.verificarGanador(simbolo);
     if (hayGanador) {
       this.ganador = simbolo;
       this.juegoTerminado = true;
-      console.log(`🏆 ¡${simbolo} ha ganado!`);
       return true;
     }
 
@@ -66,13 +61,11 @@ export class EstadoJuego {
     if (this.tableroLleno()) {
       this.ganador = "Empate";
       this.juegoTerminado = true;
-      console.log("🤝 ¡Empate!");
       return true;
     }
 
     // Cambiar turno
     this.turnoActual = this.turnoActual === "X" ? "O" : "X";
-    console.log(`🔄 Turno cambiado a: ${this.turnoActual}`);
 
     return true;
   }
@@ -114,7 +107,6 @@ export class EstadoJuego {
     this.turnoActual = "X";
     this.ganador = null;
     this.juegoTerminado = false;
-    console.log("🔄 Juego reiniciado");
   }
 
   /**
@@ -138,7 +130,6 @@ export class EstadoJuego {
   eliminarOponente(): void {
     // Solo reiniciar, mantener el jugador actual
     this.reiniciar();
-    console.log("👋 Oponente eliminado, juego reiniciado");
   }
 
   /**

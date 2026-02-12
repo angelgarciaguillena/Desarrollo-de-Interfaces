@@ -13,7 +13,6 @@ export class JuegoConnection {
 
   constructor(@inject(TYPES.HubUrl) hubUrl: string) {
     this.hubUrl = hubUrl;
-    console.log(`[SignalRConnection] Hub URL: ${hubUrl}`); 
   }
 
   /**
@@ -21,7 +20,6 @@ export class JuegoConnection {
    */
   async connect(): Promise<void> {
     if (this.connection && this.connection.state === signalR.HubConnectionState.Connected) {
-      console.log("[SignalRConnection] Ya conectado");
       return;
     }
 
@@ -38,9 +36,7 @@ export class JuegoConnection {
       
     try {
       await this.connection.start();
-      console.log("[SignalRConnection] ✅ Conectado al hub");
     } catch (error) {
-      console.error("[SignalRConnection] ❌ Error al conectar:", error);
       throw new Error("No se pudo conectar al servidor");
     }
   }
@@ -52,9 +48,8 @@ export class JuegoConnection {
     if (this.connection) {
       try {
         await this.connection.stop();
-        console.log("[SignalRConnection] Desconectado");
       } catch (error) {
-        console.error("[SignalRConnection] Error al desconectar:", error);
+        console.error("Error al desconectar:", error);
       }
       this.connection = null;
     }
@@ -79,11 +74,9 @@ export class JuegoConnection {
    */
   on(eventName: string, handler: (...args: any[]) => void): void {
     if (!this.connection) {
-      console.error("[SignalRConnection] No hay conexión activa");
       return;
     }
     this.connection.on(eventName, handler);
-    console.log(`[SignalRConnection] Listener registrado: ${eventName}`);  // ✅ CORREGIDO
   }
 
   /**
@@ -92,7 +85,6 @@ export class JuegoConnection {
   off(eventName: string, handler: (...args: any[]) => void): void {
     if (!this.connection) return;
     this.connection.off(eventName, handler);
-    console.log(`[SignalRConnection] Listener eliminado: ${eventName}`);  // ✅ CORREGIDO
   }
 
   /**
@@ -102,7 +94,6 @@ export class JuegoConnection {
     if (!this.connection) {
       throw new Error("No hay conexión activa");
     }
-    console.log(`[SignalRConnection] Invocando: ${methodName}`, args);  // ✅ CORREGIDO
     return await this.connection.invoke(methodName, ...args);
   }
 }

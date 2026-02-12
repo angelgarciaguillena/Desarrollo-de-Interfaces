@@ -38,7 +38,6 @@ export class JuegoViewModel {
     this.juegoUseCases = juegoUseCases;
     
     makeObservable(this);
-    console.log("[GameViewModel] Creado");
   }
 
   /**
@@ -58,17 +57,14 @@ export class JuegoViewModel {
   async initialize(): Promise<void> {
     try {
       this.estaCargando = true;
-      console.log("[GameViewModel] Inicializando...");
       
       // Conectar al servidor
       await this.connect();
       
       // Unirse a la partida
       await (this.juegoRepository as any).unirseAPartida(this.miNombre);
-      console.log("[GameViewModel] Unido a la partida");
       
     } catch (error: any) {
-      console.error("[GameViewModel] Error al inicializar:", error);
       throw error;
     } finally {
       this.estaCargando = false;
@@ -83,13 +79,11 @@ export class JuegoViewModel {
     try {
       await this.juegoRepository.connect();
       this.estaConectado = true;
-      console.log("[GameViewModel] ✅ Conectado");
       
       // Configurar event listeners
       this.configurarEventos();
       
     } catch (error) {
-      console.error("[GameViewModel] ❌ Error al conectar:", error);
       this.estaConectado = false;
       throw error;
     }
@@ -134,8 +128,6 @@ export class JuegoViewModel {
       this.manejarOponenteSalio();
     });
     this.unsubs.push(unsub6);
-
-    console.log("[GameViewModel] Eventos configurados");
   }
 
   /**
@@ -143,7 +135,6 @@ export class JuegoViewModel {
    */
   @action
   private manejarJugadorUnido(event: any): void {
-    console.log("[GameViewModel] 👤 Jugador unido:", event);
     this.miSimbolo = event.simbolo;
     
     // Crear mi jugador
@@ -155,9 +146,6 @@ export class JuegoViewModel {
     } else {
       this.estadoJuego.jugadorO = jugador;
     }
-    
-    console.log("[GameViewModel] ✅ Mi símbolo asignado:", this.miSimbolo);
-    console.log("[GameViewModel] Estado actual - esperandoJugador:", this.estadoJuego.esperandoJugador);
   }
 
   /**
@@ -165,7 +153,6 @@ export class JuegoViewModel {
    */
   @action
   private manejarPartidaLista(event: any): void {
-    console.log("[GameViewModel] 🎮 Partida lista:", event);
     
     // IMPORTANTE: Cuando llega este evento, debemos asegurarnos de que
     // tenemos información de AMBOS jugadores
@@ -180,11 +167,6 @@ export class JuegoViewModel {
     if (!this.estadoJuego.jugadorO && event.jugadorO) {
       this.estadoJuego.jugadorO = new Jugador("", "O", event.jugadorO);
     }
-    
-    console.log("[GameViewModel] ✅ Partida lista con ambos jugadores");
-    console.log("[GameViewModel] JugadorX:", this.estadoJuego.jugadorX?.nombre);
-    console.log("[GameViewModel] JugadorO:", this.estadoJuego.jugadorO?.nombre);
-    console.log("[GameViewModel] esperandoJugador:", this.estadoJuego.esperandoJugador);
   }
 
   /**
@@ -192,7 +174,6 @@ export class JuegoViewModel {
    */
   @action
   private manejarMovimientoRealizado(event: any): void {
-    console.log("[GameViewModel] 🎯 Movimiento realizado:", event);
     
     // Aplicar el movimiento al estado local
     // IMPORTANTE: No enviar de nuevo al servidor (evitar bucle)
@@ -205,7 +186,6 @@ export class JuegoViewModel {
    */
   @action
   private manejarPartidaReiniciada(): void {
-    console.log("[GameViewModel] 🔄 Partida reiniciada");
     this.estadoJuego.reiniciar();
   }
 
@@ -214,7 +194,6 @@ export class JuegoViewModel {
    */
   @action
   private manejarOponenteDesconectado(): void {
-    console.log("[GameViewModel] 👋 Oponente desconectado");
     this.estadoJuego.eliminarOponente();
     
     // Eliminar el otro jugador
@@ -230,7 +209,6 @@ export class JuegoViewModel {
    */
   @action
   private manejarOponenteSalio(): void {
-    console.log("[GameViewModel] 🚪 Oponente salió");
     this.manejarOponenteDesconectado();
   }
 
@@ -240,7 +218,6 @@ export class JuegoViewModel {
   @action
   async manejarClicCasilla(posicion: number): Promise<void> {
     if (!this.miSimbolo) {
-      console.log("[GameViewModel] ⚠️ No tienes símbolo asignado");
       return;
     }
 
@@ -251,7 +228,7 @@ export class JuegoViewModel {
         this.miSimbolo
       );
     } catch (error) {
-      console.error("[GameViewModel] Error al hacer movimiento:", error);
+      console.error("Error al hacer movimiento:", error);
     }
   }
 
@@ -262,9 +239,8 @@ export class JuegoViewModel {
   async reiniciarJuego(): Promise<void> {
     try {
       await this.juegoUseCases.reiniciarJuego();
-      console.log("[GameViewModel] ✅ Juego reiniciado");
     } catch (error) {
-      console.error("[GameViewModel] Error al reiniciar:", error);
+      console.error("Error al reiniciar:", error);
     }
   }
 
@@ -281,9 +257,8 @@ export class JuegoViewModel {
       await this.juegoRepository.disconnect();
       this.estaConectado = false;
       
-      console.log("[GameViewModel] Desconectado");
     } catch (error) {
-      console.error("[GameViewModel] Error al desconectar:", error);
+      console.error("Error al desconectar:", error);
     }
   }
 
@@ -293,6 +268,5 @@ export class JuegoViewModel {
   private limpiarSubscripciones(): void {
     this.unsubs.forEach((unsub) => unsub());
     this.unsubs = [];
-    console.log("[GameViewModel] Subscripciones limpiadas");
   }
 }
